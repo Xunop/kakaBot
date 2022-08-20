@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mybot.kakaBot.mapper.ImagesMapper">
+
+    <resultMap id="images" type="com.mybot.kakaBot.entity.Image">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="pid" property="pid" jdbcType="BIGINT"/>
+        <result column="uid" property="uid" jdbcType="BIGINT"/>
+        <result column="is_r18" property="isR18" jdbcType="TINYINT"/>
+        <result column="title" property="title" jdbcType="VARCHAR"/>
+        <result column="author" property="author" jdbcType="VARCHAR"/>
+        <result column="url" property="url" jdbcType="VARCHAR"/>
+        <result column="tags" property="tags" jdbcType="VARCHAR" typeHandler="com.mybot.kakaBot.config.JSONArrayHandler"/>
+        <result column="ext" property="ext" jdbcType="VARCHAR"/>
+        <result column="file_name" property="fileName" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="selectOne" resultMap="images">
+        SELECT *
+        FROM images AS t1
+                 JOIN (SELECT ROUND(
+                                              RAND() * ((SELECT MAX(id)
+                                                         FROM `images`) - (SELECT MIN(id)
+                                                                           FROM `images`)) + (SELECT MIN(id)
+                                                                                              FROM `images`)) AS imageId) AS t2
+        WHERE t1.id >= t2.imageId
+        ORDER BY t1.id LIMIT 1
+    </select>
+</mapper>
