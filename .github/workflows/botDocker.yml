@@ -45,5 +45,5 @@ jobs:
           username: ubuntu
           script_stop: true
           script: |
-            sudo docker restart botcontainer
+            sudo docker restart BotContainer
 
