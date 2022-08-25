@@ -52,7 +52,7 @@ public class QQBot {
             {
                 //保存设备信息到文件deviceInfo.json文件里相当于是个设备认证信息
                 fileBasedDeviceInfo(deviceInfo);
-                setProtocol(MiraiProtocol.MACOS); // 切换协议
+                setProtocol(MiraiProtocol.ANDROID_PAD); // 切换协议
             }
         });
         bot.getEventChannel().registerListenerHost(new MyEventHandler());
