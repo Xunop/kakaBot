@@ -33,12 +33,14 @@ public class NoticeHandler {
         Friend xyr = bot.getFriend(qqBot.getFriend1());
         Friend master = bot.getFriend(qqBot.getMaster());
         Friend bt = bot.getFriend(qqBot.getFriend2());
+        Friend zym = bot.getFriend(qqBot.getFriend3());
 //        Group cjr = bot.getGroup(737321526);
         List<Object[]> notice = Notice.getNotice();
         List<Friend> friends = new ArrayList<>();
         friends.add(master);
         friends.add(xyr);
         friends.add(bt);
+        friends.add(zym);
         SimpleDateFormat fomat = new SimpleDateFormat("yyyy-MM-dd");
         Date date = new Date();
         String currentTime = fomat.format(date);

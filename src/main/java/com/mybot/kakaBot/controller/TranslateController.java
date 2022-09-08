@@ -52,7 +52,7 @@ public class TranslateController {
                 // 这里的机制是这样的：
                 // 如果 tran 方法报错则调用 translation 这个接口不支持发送语音
                 try {
-                    result = TranslateBaked.tran(event1, sentence, false);
+                    result = TranslateBaked.tran(event1, sentence, true);
                 } catch (NullPointerException | IOException e) {
                     log.error(e.getMessage());
                     try {

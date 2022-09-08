@@ -30,6 +30,9 @@ public class QQBot {
     @Value("${account.friend2}")
     private Long friend2;
 
+    @Value("${account.friend3}")
+    private Long friend3;
+
     private static Bot bot;
 
     private static Bot getBot() {
@@ -67,5 +70,8 @@ public class QQBot {
     }
     public Long getFriend2() {
         return friend2;
+    }
+    public Long getFriend3() {
+        return friend3;
     }
 }
