@@ -96,7 +96,6 @@ public class TranslateBaked {
             String result = translation.getString(0);
             log.info("获取到翻译结果：" + result);
 
-            System.out.println("===");
             String tSpeakUrl = jsonObject.getString("tSpeakUrl");
             log.info("获取到tSpeakUrl：" + tSpeakUrl);
             threadPool.submit(() -> {

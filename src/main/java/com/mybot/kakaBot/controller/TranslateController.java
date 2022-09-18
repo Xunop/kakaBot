@@ -38,6 +38,7 @@ public class TranslateController {
         final ExecutorService threadPool = Executors.newCachedThreadPool();
         Bot bot = Bot.getInstance(191416049);
         event.getSubject().sendMessage("进入翻译功能，输入 exit 退出");
+
         threadPool.submit(() -> {
             bot.getEventChannel().subscribe(GroupMessageEvent.class, event1 -> {
                 if (event1.getMessage().contentToString().equals("exit")) {
