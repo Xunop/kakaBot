@@ -9,25 +9,19 @@ import com.mybot.kakaBot.enums.EventType;
 import com.mybot.kakaBot.util.EventReflectUtil;
 import com.mybot.kakaBot.util.MessageUtil;
 import com.mybot.kakaBot.util.SpringContextUtil;
-import com.mybot.kakaBot.api.GifApi;
 import com.mybot.kakaBot.api.HitokotoApi;
 import kotlin.coroutines.CoroutineContext;
 import lombok.extern.slf4j.Slf4j;
-import net.mamoe.mirai.contact.Group;
-import net.mamoe.mirai.contact.User;
 import net.mamoe.mirai.event.*;
 import net.mamoe.mirai.event.events.FriendMessageEvent;
 import net.mamoe.mirai.event.events.GroupMessageEvent;
 import net.mamoe.mirai.event.events.MessageEvent;
-import net.mamoe.mirai.message.data.MessageChain;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
-import java.util.Arrays;
-import java.util.concurrent.atomic.AtomicReference;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -100,7 +94,6 @@ public class MyEventHandler extends SimpleListenerHost {
                 SavePicture.savePicture(event, event.getSubject());
                 break;
         }
-
         log.info("onFriendMessage");
         for (Object[] objects : EventReflectUtil.getEventMethods()) {
             Method method = (Method) objects[0];

@@ -2,11 +2,14 @@ package com.mybot.kakaBot;
 
 import com.mybot.kakaBot.entity.QQBot;
 import com.mybot.kakaBot.util.EventReflectUtil;
+import com.mybot.kakaBot.websocket.MyWebSocketClient;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.scheduling.annotation.EnableScheduling;
+
+import java.net.URI;
 
 @SpringBootApplication
 @EnableScheduling
@@ -17,6 +20,9 @@ public class kakaBotApplication {
         EventReflectUtil.scanReceiveMethods();
         QQBot bot = run.getBean(QQBot.class);
         bot.startBot();
+        MyWebSocketClient myClient = new MyWebSocketClient(
+                URI.create("ws://localhost:8088/websocket/kakabot"));
+        myClient.connect();
     }
 
 }

@@ -3,12 +3,10 @@ package com.mybot.kakaBot.util;
 import com.alibaba.fastjson2.JSONArray;
 import com.alibaba.fastjson2.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.mybot.kakaBot.controller.ImageController;
 import com.mybot.kakaBot.enums.ErrorEnum;
 import com.mybot.kakaBot.exception.LocalRuntimeException;
 import com.mybot.kakaBot.mapper.ImagesMapper;
 import com.mybot.kakaBot.entity.Image;
-import io.minio.errors.MinioException;
 import lombok.extern.slf4j.Slf4j;
 import net.mamoe.mirai.contact.Contact;
 import net.mamoe.mirai.event.events.FriendMessageEvent;
@@ -23,7 +21,6 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -66,9 +63,7 @@ public class ImagesUtil {
 
     /**
      * 获取图片
-     *
      * @return image 获取到图片的信息
-     * @throws IOException
      */
 
     public Image getImage(Boolean r18) throws IOException {
@@ -157,7 +152,7 @@ public class ImagesUtil {
         }
 
         JSONArray data = jsonObject.getJSONArray("data");
-        System.out.println(data);
+
         if (data.isEmpty()) {
             throw new LocalRuntimeException(ErrorEnum.IMAGE_NOT_EXIST);
         }

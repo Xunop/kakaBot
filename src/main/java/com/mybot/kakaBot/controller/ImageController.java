@@ -50,7 +50,7 @@ public class ImageController {
 
     private static int r18 = 0;
 
-    @Event(type = EventType.ALl, command = "涩涩")
+    @Event(type = EventType.Master, command = "涩涩")
     public void sendImage(MessageEvent event) throws IOException {
         Image image = imagesMapper.selectOne();
         try (InputStream stream = fileUtil.getObject("images", image.getFileName())) {
@@ -84,7 +84,7 @@ public class ImageController {
 
     // 示例：来份宵宫|雷电将军 r18涩图
     // 此时 r18=1，tag=宵宫|雷电将军
-    @Event(type = EventType.ALl, command = "来点涩图")
+    @Event(type = EventType.Master, command = "来点涩图")
     public void searchImage(MessageEvent event) {
         String command = event.getMessage().contentToString();
         Integer num = getNum(command);
