@@ -5,7 +5,7 @@ spring:
   datasource:
     username: username
     password: password
-    url: xxxxxx
+    url: xxxxx
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   redis:
