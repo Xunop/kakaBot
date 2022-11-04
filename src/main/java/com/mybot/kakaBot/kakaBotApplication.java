@@ -21,7 +21,7 @@ public class kakaBotApplication {
         QQBot bot = run.getBean(QQBot.class);
         bot.startBot();
         MyWebSocketClient myClient = new MyWebSocketClient(
-                URI.create("ws://localhost:8088/websocket/kakabot"));
+                URI.create("ws://localhost:8888/websocket/kakabot"));
         myClient.connect();
     }
 
