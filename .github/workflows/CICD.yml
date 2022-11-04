@@ -18,9 +18,10 @@ jobs:
         run: |
           sudo apt-get install curl
           sudo apt-get install tar
+          curl -O https://download.oracle.com/java/19/latest/jdk-19_linux-x64_bin.tar.gz
       - name: set up java
         run: |
-          curl -O https://download.oracle.com/java/19/latest/jdk-19_linux-x64_bin.tar.gz
+          
           tar -zxvf ./jdk-19_linux-x64_bin.tar.gz -C /usr/local/
         env:
           JAVA_HOME: /usr/local/jdk-19.0.1/
