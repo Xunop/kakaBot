@@ -33,8 +33,6 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/kakabot:latest
-          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/kakabot:buildcache
-          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/kakabot:buildcache,mode=max
 
       - name: download image
         uses: appleboy/ssh-action@v0.1.4
