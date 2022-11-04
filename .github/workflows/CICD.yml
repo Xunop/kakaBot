@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@main
       - uses: actions/checkout@v3
       - name: download curl
-        run: apt install curl
+        run: sudo apt-get install -y curl
       - name: download jdk19
         run: curl -O https://download.oracle.com/java/19/latest/jdk-19_linux-x64_bin.tar.gz
 
