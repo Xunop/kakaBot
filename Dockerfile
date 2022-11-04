@@ -1,5 +1,5 @@
-FROM xun_jdk19:1.0.0
-MAINTAINER xun
+FROM xunop/xun_java19
+MAINTAINER xunop "xun794@gmail.com"
 VOLUME /tmp
 ADD kakaBot.jar .
 COPY device.json /
