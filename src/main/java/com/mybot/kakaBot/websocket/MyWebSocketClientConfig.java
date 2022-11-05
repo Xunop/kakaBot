@@ -66,7 +66,6 @@ public class MyWebSocketClientConfig {
         public void onMessage(String s) {
             Bot bot = kakabot.getBot();
             Object groups = redisUtil.lGet("Groups", 0, -1);
-            System.out.println(groups);
             List<String> groupList = new ArrayList<>();
             for (Object o : (List<?>) groups) {
                 groupList.add(o.toString());

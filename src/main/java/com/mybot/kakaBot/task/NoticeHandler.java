@@ -4,16 +4,12 @@ import com.mybot.kakaBot.api.Notice;
 import com.mybot.kakaBot.entity.QQBot;
 import net.mamoe.mirai.Bot;
 import net.mamoe.mirai.contact.Friend;
-import net.mamoe.mirai.contact.Group;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -34,7 +30,6 @@ public class NoticeHandler {
         Friend master = bot.getFriend(qqBot.getMaster());
         Friend bt = bot.getFriend(qqBot.getFriend2());
         Friend zym = bot.getFriend(qqBot.getFriend3());
-//        Group cjr = bot.getGroup(737321526);
         List<Object[]> notice = Notice.getNotice();
         List<Friend> friends = new ArrayList<>();
         friends.add(master);
