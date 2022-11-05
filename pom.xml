@@ -148,6 +148,7 @@
                 <configuration>
                     <source>11</source>
                     <target>11</target>
+                    <skip>true</skip>
                 </configuration>
             </plugin>
         </plugins>
