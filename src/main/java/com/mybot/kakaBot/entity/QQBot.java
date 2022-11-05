@@ -6,6 +6,7 @@ import net.mamoe.mirai.Bot;
 import net.mamoe.mirai.BotFactory;
 import net.mamoe.mirai.utils.BotConfiguration;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 /**
@@ -35,7 +36,7 @@ public class QQBot {
 
     private static Bot bot;
 
-    private static Bot getBot() {
+    public Bot getBot() {
         return bot;
     }
 
@@ -45,7 +46,8 @@ public class QQBot {
     /**
      * 启动Bot
      */
-    public void startBot(){
+    @Bean
+    public Bot startBot(){
         if (null == account || null == password) {
             System.err.println("*****未配置账号或密码*****");
             log.warn("*****未配置账号或密码*****");
@@ -60,6 +62,7 @@ public class QQBot {
         });
         bot.getEventChannel().registerListenerHost(new MyEventHandler());
         bot.login();
+        return bot;
     }
 
     public Long getMaster() {
