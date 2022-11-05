@@ -146,8 +146,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>19</source>
-                    <target>19</target>
+                    <source>11</source>
+                    <target>11</target>
                     <skip>true</skip>
                 </configuration>
             </plugin>
